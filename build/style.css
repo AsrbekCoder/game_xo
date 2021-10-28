@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: rgb(46, 3, 12);
+}
+
+.container {
+  border-radius: 15px;
+  background-color: cadetblue;
+}
+
+.tic_content {
+  text-align: center;
+  margin-top: 15px;
+}
+.tic_main {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 30px 0;
+  align-items: center;
+}
+
+.tic_x-o_box {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  margin: 15px;
+  background-color: rgb(20, 57, 58);
+}
+.cell_mains {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  background-color: cadetblue;
+  cursor: pointer;
+  transition: 0.2s;
+}
+button {
+  background-color: rgba(255, 255, 255, 0.3);
+  outline: none;
+  border: none;
+  color: #fff;
+  padding: 5px 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+button:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.cell_mains:hover {
+  background-color: rgb(14, 144, 151);
+}
+.x::after {
+  content: "X";
+  font-size: 45px;
+  font-weight: 700;
+  color: #353535;
+}
+.o::after {
+  content: "O";
+  font-size: 45px;
+  font-weight: 700;
+  color: cornsilk;
+}
+.win::after {
+  color: red;
+}
+.won::after {
+  content: "Winner Winner Chicken Dinner";
+  position: absolute;
+  color: yellow;
+  top: 20px;
+  animation: animate 6s ease-in-out infinite;
+  overflow: hidden;
+}
+@keyframes animate {
+  0%,
+  100% {
+    transform: translateX(-80px);
+  }
+  50% {
+    transform: translateX(80px);
+  }
+}
+
+@media screen and (max-width: 378px) {
+  .won::after {
+    top: 80px;
+  }
+}
